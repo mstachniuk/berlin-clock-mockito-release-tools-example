@@ -2,3 +2,6 @@
 .gradle
 build/
 classes/
+
+# Cache of project
+.gradletasknamecache

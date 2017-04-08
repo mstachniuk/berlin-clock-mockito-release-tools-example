@@ -21,3 +21,6 @@ install:
 
 script:
   - ./gradlew build -s
+
+after_success:
+  - ./gradlew travisRelease -s
