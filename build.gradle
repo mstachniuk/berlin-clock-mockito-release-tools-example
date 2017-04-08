@@ -1,5 +1,16 @@
+buildscript {
+    repositories {
+        mavenLocal() //for local testing of mockito-release-tools
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath "gradle.plugin.org.mockito:mockito-release-tools:0.3.9"
+    }
+}
+
+
 group 'com.github.mstachniuk'
-version '1.0'
+version '1.0.0'
 
 apply plugin: 'java'
 
@@ -14,3 +25,5 @@ dependencies {
     testCompile 'org.mockito:mockito-core:2.2.9'
     compile 'org.assertj:assertj-core:3.6.1'
 }
+
+apply from: "gradle/release.gradle"

@@ -1,0 +1,26 @@
+apply plugin: "org.mockito.mockito-release-tools.continuous-delivery"
+
+ext {
+    gh_repository = "mstachniuk/berlin-clock-mockito-release-tools-example"
+    gh_user = "mstachniuk"
+    gh_readOnlyAuthToken = System.getenv('READ_ONLY_GH_AUTH_TOKEN')
+
+    releaseNotes_file = "docs/release-notes.md"
+    releaseNotes_notableFile = "docs/notable-release-notes.md"
+
+    bintray_repo = 'berlin-clock-mockito-release-tools-example'
+
+    pom_developers = ['mstachniuk:Marcin Stachniuk']
+}
+
+allprojects {
+    plugins.withId("org.mockito.release-tools.bintray") {
+        bintray {
+            pkg {
+                user = 'mstachniuk'
+                name = 'berlin-clock-mockito-release-tools-example'
+                licenses = ['MIT']
+            }
+        }
+    }
+}
